@@ -78,6 +78,17 @@ body {
     left: 0;
 }
 
+
+.item-like {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.item-like button:last-child {
+    float: right;
+}
+
 .item img {
     display: block;
     float: left;

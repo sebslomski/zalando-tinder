@@ -49,18 +49,10 @@ var Application = React.createClass({
             break;
 
           case 39: // Arrow right
-            this.setState({
-                lastAction: 'right'
-            });
-
             this.like();
             break;
 
           case 37: // Arrow left
-            this.setState({
-              lastAction: 'left'
-            });
-
             this.dislike();
             break;
         }
@@ -70,6 +62,7 @@ var Application = React.createClass({
         var that = this;
 
         this.setState({
+            lastAction: 'left',
             likes: _.filter(this.state.likes, function(like) {
                 return like.link !== that.state.items[that.state.currentIndex].link;
             })
@@ -82,6 +75,7 @@ var Application = React.createClass({
 
     like: function() {
         this.setState({
+            lastAction: 'right',
             likes: _.uniq(
                 this.state.likes.concat([
                     this.state.items[this.state.currentIndex]
@@ -132,6 +126,11 @@ var Application = React.createClass({
                         <br/>
                         <br/>
                         <b>{item.length}cm</b> bei Größe {item.size} (+{item.length - 73}cm)
+                    </div>
+
+                    <div className="item-like">
+                        <button onClick={this.dislike}>Dislike</button>
+                        <button onClick={this.like}>Like</button>
                     </div>
                 </div>
             );
