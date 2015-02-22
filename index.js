@@ -8,12 +8,16 @@ var _ = require('lodash');
 
 var DOMEventListener = require('./DOMEventListener');
 
+var items = require('./items.json');
+
 
 
 var Application = React.createClass({
     getInitialState: function() {
         return {
-            items: [],
+            items: _.sortBy(items, function(item) {
+                return Number(item.price);
+            }),
             currentIndex: Number(window.localStorage.currentIndex || '0'),
             likes: JSON.parse(window.localStorage.likes || '[]'),
             lastAction: 'down'
@@ -24,22 +28,6 @@ var Application = React.createClass({
         DOMEventListener.listen(
           document, 'keyup', this.handleDocumentKeyUp
         );
-
-        var that = this;
-
-        $.getJSON('foo.json', function(items) {
-            items = _(items)
-                .sortBy(function(item) {
-                    return Number(item.price.split(' ')[0].replace(',', '.'));
-                })
-                .value();
-
-            items[0].isActive = true;
-
-            that.setState({
-                items: items
-            });
-        })
     },
 
     handleDocumentKeyUp: function(event) {
