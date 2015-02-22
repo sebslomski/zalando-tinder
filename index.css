@@ -1,0 +1,121 @@
+* {
+    -webkit-box-sizing: border-box;
+    font-family: 'Helvetica Neue';
+    font-size: 20px;
+}
+
+.s-move-up--enter {
+    opacity: 0.01;
+    -webkit-transform: translate(0, -200px);
+    transition: all .4s ease-in;
+}
+
+
+.s-move-down--enter,
+.s-move-left--enter,
+.s-move-right--enter {
+    opacity: 0.01;
+    transition: all .4s ease-in;
+}
+
+.s-move-down--enter-active,
+.s-move-up--enter-active,
+.s-move-left--enter-active,
+.s-move-right--enter-active {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+}
+
+.s-move-down--leave,
+.s-move-up--leave,
+.s-move-left--leave,
+.s-move-right--leave {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+    transition: all .3s ease-in;
+}
+
+.s-move-right--leave-active {
+    opacity: 0.01;
+    -webkit-transform: translate(400px, 0);
+}
+
+.s-move-left--leave-active {
+    opacity: 0.01;
+    -webkit-transform: translate(-400px, 0);
+}
+
+.s-move-down--leave-active {
+    opacity: 0.01;
+    -webkit-transform: translate(0, 200px);
+}
+
+.s-move-down--leave-active {
+    opacity: 0.01;
+}
+
+
+body {
+    background: #e2e2e2;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+}
+
+.item-wrapper {
+    width: 50%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.item {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item img {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.item-text {
+    float: left;
+    padding-left: 50px;
+    width: 50%;
+}
+
+
+.likes-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+
+.likes {
+    width: 100000px;
+}
+
+.like {
+    float: left;
+}
+
+.like img {
+    display: block;
+    height: 80px;
+}
+
+
+.like a {
+    line-height: 20px;
+}
